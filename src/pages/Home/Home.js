@@ -45,10 +45,8 @@ function Home() {
     // dispatch(setBalanceAmount(30));
   }, []);
 
-  console.log({ guestBalance });
-
   const getIdenticalCount = (x, y, z) => {
-    if (x == y && y == z) {
+    if (x === y && y === z) {
       if (x === "♠") {
         return 5;
       } else {
@@ -56,7 +54,7 @@ function Home() {
       }
     }
 
-    if (x == y || y == z || z == x) {
+    if (x === y || y === z || z === x) {
       return 0.5;
     }
 
@@ -123,9 +121,22 @@ function Home() {
   };
 
   const handleSpin2 = () => {
-    setslot1("♠");
-    setslot2("♠");
-    setslot3("♠");
+    let x, y, z;
+    slotRef.forEach((slot, i) => {
+      // this will trigger rolling effect
+      const selected = triggerSlotRotation(slot.current);
+      if (i === 0) {
+        x = selected;
+      } else if (i === 1) {
+        y = selected;
+      } else {
+        z = selected;
+      }
+    });
+
+    setslot1(x);
+    setslot2(y);
+    setslot3(z);
     setData([
       ...data,
       {

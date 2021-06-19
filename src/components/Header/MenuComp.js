@@ -123,7 +123,6 @@ export default function MenuComp() {
         // ...
       })
       .catch((error) => {
-        var errorCode = error.code;
         var errorMessage = error.message;
         alert(errorMessage);
       });
@@ -136,12 +135,11 @@ export default function MenuComp() {
         // Signed in
         var user = userCredential.user;
         dispatch(login(user));
-        dispatch(setBalanceAmount(20));
+        dispatch(setBalanceAmount(9.99));
         setVisible(false);
         // ...
       })
       .catch((error) => {
-        var errorCode = error.code;
         var errorMessage = error.message;
         alert(errorMessage);
         // ..
@@ -189,8 +187,19 @@ export default function MenuComp() {
   const signIn = () => {
     auth
       .signInWithPopup(provider)
-      .then(() => setVisible(false))
-      .catch((error) => alert(error.message()));
+      .then((userCredential) => {
+        // Signed in
+        var user = userCredential.user;
+        dispatch(login(user));
+        dispatch(setBalanceAmount(9.99));
+        setVisible(false);
+        // ...
+      })
+      .catch((error) => {
+        var errorMessage = error.message;
+        alert(errorMessage);
+        // ..
+      });
   };
 
   return (
