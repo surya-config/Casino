@@ -217,7 +217,12 @@ export default function MenuComp() {
         </div>
         <div className={classes.columnDiv}>
           <h5 className={classes.balance}>Your Balance</h5>
-          <h3 className={classes.amount}>${user ? balance : guestBalance}</h3>
+          <h3 className={classes.amount}>
+            $
+            {user
+              ? parseFloat(balance).toFixed(2)
+              : parseFloat(guestBalance).toFixed(2)}
+          </h3>
         </div>
 
         <Button
@@ -226,7 +231,25 @@ export default function MenuComp() {
           aria-haspopup="true"
           onClick={handleToggle}
         >
-          <AccountCircleOutlinedIcon style={{ fill: "white", fontSize: 40 }} />
+          {user ? (
+            user.photoURL ? (
+              <img
+                src={user.photoURL}
+                alt=""
+                width="40px"
+                height="40px"
+                style={{ borderRadius: "999px" }}
+              />
+            ) : (
+              <AccountCircleOutlinedIcon
+                style={{ fill: "white", fontSize: 40 }}
+              />
+            )
+          ) : (
+            <AccountCircleOutlinedIcon
+              style={{ fill: "white", fontSize: 40 }}
+            />
+          )}
         </Button>
 
         <Popper

@@ -62,7 +62,7 @@ function Home() {
   };
 
   const handleSpin1 = () => {
-    if (balance >= 2 || guestBalance >= 2) {
+    if (user ? balance >= 2 : guestBalance >= 2) {
       // setRolling(true);
       // setTimeout(() => {
       //   setRolling(false);
@@ -99,7 +99,7 @@ function Home() {
           item1: slot1,
           item2: slot2,
           item3: slot3,
-          time: new Date(),
+          time: new Date().toLocaleString(),
         },
       ]);
 
@@ -109,22 +109,30 @@ function Home() {
     }
   };
 
-  const triggerSlotRotation = (ref) => {
+  const triggerSlotRotation = (ref, type) => {
     function setTop(top) {
       ref.style.top = `${top}px`;
     }
     let options = ref.children;
-    let randomOption = Math.floor(Math.random() * allSymbols.length);
-    let choosenOption = options[randomOption];
-    setTop(-choosenOption.offsetTop + 2);
-    return allSymbols[randomOption];
+
+    if (type === "fake") {
+      let choosenOption = options[0];
+      setTop(-choosenOption.offsetTop + 2);
+      return "♠";
+    } else {
+      let randomOption = Math.floor(Math.random() * allSymbols.length);
+      let choosenOption = options[randomOption];
+      setTop(-choosenOption.offsetTop + 2);
+      return allSymbols[randomOption];
+    }
   };
 
   const handleSpin2 = () => {
     let x, y, z;
+
     slotRef.forEach((slot, i) => {
       // this will trigger rolling effect
-      const selected = triggerSlotRotation(slot.current);
+      const selected = triggerSlotRotation(slot.current, "fake");
       if (i === 0) {
         x = selected;
       } else if (i === 1) {
@@ -144,7 +152,7 @@ function Home() {
         item1: slot1,
         item2: slot2,
         item3: slot3,
-        time: new Date(),
+        time: new Date().toLocaleString(),
       },
     ]);
 
@@ -161,7 +169,7 @@ function Home() {
         <Modal
           visible={visible}
           width="80%"
-          height="80%"
+          height="530px"
           effect="fadeInUp"
           onClickaway={() => setVisible(false)}
           style={{ backgroundColor: "#111" }}
@@ -287,16 +295,23 @@ function Home() {
             <IconButton
               style={{ position: "absolute", top: "20px", right: "20px" }}
               onClick={() => {
+                let x, y, z;
+                slotRef.forEach((slot, i) => {
+                  // this will trigger rolling effect
+                  const selected = triggerSlotRotation(slot.current);
+                  if (i === 0) {
+                    x = selected;
+                  } else if (i === 1) {
+                    y = selected;
+                  } else {
+                    z = selected;
+                  }
+                });
+
+                setslot1(x);
+                setslot2(y);
+                setslot3(z);
                 setVisible(false);
-                setslot1(
-                  allSymbols[Math.floor(Math.random() * allSymbols.length)]
-                );
-                setslot2(
-                  allSymbols[Math.floor(Math.random() * allSymbols.length)]
-                );
-                setslot3(
-                  allSymbols[Math.floor(Math.random() * allSymbols.length)]
-                );
               }}
             >
               <CloseIcon />

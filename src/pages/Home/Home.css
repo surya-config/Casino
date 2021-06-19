@@ -9,7 +9,7 @@
 }
 
 .home__body {
-  min-height: 80vh;
+  min-height: 90vh;
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -69,6 +69,7 @@
 
 .instructions > ul > li {
   margin-bottom: 2px;
+  font-weight: 500;
 }
 
 .game__slots {

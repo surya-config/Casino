@@ -24,7 +24,7 @@ export const userSlice = createSlice({
       } catch (e) {}
     },
     setGuestBalanceAmount: (state, action) => {
-      state.guestBalance = action.payload;
+      state.guestBalance = action.payload.toFixed(2);
       try {
         localStorage.setItem("guestBalance", action.payload);
       } catch (e) {}
