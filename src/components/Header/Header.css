@@ -1,0 +1,103 @@
+.header {
+  height: 100px;
+  width: 100vw;
+  border-bottom: 1px solid #e1e1e1;
+  overflow: hidden;
+  background-color: black;
+}
+
+.header__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100% - 20px;
+  flex: 1;
+  margin: 0 20px;
+}
+
+.header__logo {
+  flex: 0.15;
+}
+
+.header__logo > img {
+  width: 150px;
+  height: 70px;
+  margin: 15px 0;
+  object-fit: cover;
+}
+
+.header__right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__right > h1 {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+.signin__button {
+  width: 250px;
+  color: #eff2f5;
+  background-color: #09be88;
+  font-weight: 800;
+  margin: 20px 0;
+}
+
+.signin__button:hover {
+  background-color: gainsboro;
+  color: #09a072;
+}
+
+.form {
+  width: 230px;
+  padding: 10px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-field {
+  border-radius: 0.3rem;
+  border: 0.12rem solid grey;
+  height: 1.5rem;
+  margin: 0;
+  width: 100%;
+  outline-color: #fcd13f;
+  padding: 3px 10px;
+}
+
+.login__button {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0.5rem;
+  width: 250px;
+  height: 35px;
+  border: 0.12rem solid transparent;
+  background-color: rgb(68, 64, 64);
+  color: white;
+  cursor: pointer;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.login__button:hover {
+  background-color: rgb(31, 29, 29);
+}
+
+.login__heading {
+  color: gray;
+  margin: 0.1rem 0;
+  font-size: 13px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.signup-link {
+  text-decoration: underline;
+  color: blue;
+}

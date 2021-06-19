@@ -1,0 +1,154 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home__top {
+  width: 100%;
+}
+
+.home__body {
+  min-height: 80vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.playButton {
+  width: 150px;
+  color: #111;
+  border-radius: 50px;
+  text-align: center;
+  padding: 10px 0;
+  margin: 20px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  position: absolute;
+  right: 10%;
+  background-size: 200% auto;
+  background-image: linear-gradient(
+    to right,
+    rgb(255, 255, 255) 0%,
+    rgb(235, 235, 235) 50%,
+    rgb(235, 235, 235) 100%
+  );
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.playButton:hover {
+  background-image: linear-gradient(
+    to right,
+    rgb(235, 235, 235) 0%,
+    rgb(255, 255, 255) 50%,
+    rgb(235, 235, 235) 100%
+  );
+}
+
+.game__container {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  margin: 50px 10%;
+}
+
+.game {
+  flex: 0.6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.instructions {
+  flex: 0.4;
+  color: black;
+}
+
+.instructions > ul > li {
+  margin-bottom: 2px;
+}
+
+.game__slots {
+  display: flex;
+  align-items: center;
+}
+
+.slot {
+  position: relative;
+  display: inline-block;
+  height: 100px;
+  width: 80px;
+}
+
+section {
+  position: absolute;
+  border-radius: 15px !important;
+  border: 2px solid black !important;
+  width: 70px;
+  height: 70px;
+  overflow: hidden;
+  background-color: grey;
+  border-radius: 2px;
+  border: 1px solid lightgrey;
+  color: white;
+  font-family: sans-serif;
+  text-align: center;
+  font-size: 25px;
+  line-height: 60px;
+  cursor: default;
+}
+
+.container {
+  position: absolute;
+  top: 2px;
+  width: 100%;
+  transition: top ease-in-out 0.5s;
+  text-align: center;
+}
+
+.spin__button {
+  width: 100px;
+  height: 50px;
+  border-radius: 20px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 600;
+  margin: 20px 0;
+}
+
+.spin__active {
+  background-size: 200% auto;
+  background-image: linear-gradient(
+    to right,
+    #a7000b 0%,
+    #af121d 50%,
+    #a51c26 100%
+  );
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.spin__active:hover {
+  background-image: linear-gradient(
+    to right,
+    #af121d 0%,
+    #a7000b 50%,
+    #a51c26 100%
+  );
+}
+.spin__inactive {
+  background-size: 200% auto;
+  background-image: linear-gradient(to right, #777 0%, #555 50%, #999 100%);
+  cursor: not-allowed;
+  transition: all 0.3s ease-in-out;
+}
+
+.spin__inactive:hover {
+  background-image: linear-gradient(to right, #555 0%, #777 50%, #999 100%);
+}
